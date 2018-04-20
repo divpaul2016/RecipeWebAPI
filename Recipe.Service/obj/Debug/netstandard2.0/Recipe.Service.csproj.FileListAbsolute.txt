@@ -1,0 +1,15 @@
+C:\Users\divya.paul\source\Projects\Recipe\Recipe.Service\bin\Debug\netstandard2.0\Recipe.Service.deps.json
+C:\Users\divya.paul\source\Projects\Recipe\Recipe.Service\bin\Debug\netstandard2.0\Recipe.Service.dll
+C:\Users\divya.paul\source\Projects\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.csprojResolveAssemblyReference.cache
+C:\Users\divya.paul\source\Projects\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.csproj.CoreCompileInputs.cache
+C:\Users\divya.paul\source\Projects\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.AssemblyInfoInputs.cache
+C:\Users\divya.paul\source\Projects\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.AssemblyInfo.cs
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\bin\Debug\netstandard2.0\Recipe.Service.deps.json
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\bin\Debug\netstandard2.0\Recipe.Service.dll
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\bin\Debug\netstandard2.0\Recipe.Service.pdb
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.csprojResolveAssemblyReference.cache
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.csproj.CoreCompileInputs.cache
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.AssemblyInfoInputs.cache
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.AssemblyInfo.cs
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.dll
+C:\Users\divya.paul\source\Goal\Recipe\Recipe.Service\obj\Debug\netstandard2.0\Recipe.Service.pdb
