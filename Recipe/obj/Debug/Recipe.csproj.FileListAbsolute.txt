@@ -210,6 +210,8 @@ C:\Users\divya.paul\source\Goal\Recipe\Recipe\obj\Debug\Recipe.csproj.CoreCompil
 C:\Users\divya.paul\source\Goal\Recipe\Recipe\obj\Debug\Recipe.csproj.CopyComplete
 C:\Users\divya.paul\source\Goal\Recipe\Recipe\obj\Debug\Recipe.dll
 C:\Users\divya.paul\source\Goal\Recipe\Recipe\obj\Debug\Recipe.pdb
+C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.csprojResolveAssemblyReference.cache
+C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.csproj.CoreCompileInputs.cache
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\ApplicationInsights.config
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Recipe.dll.config
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Recipe.dll
@@ -320,8 +322,6 @@ C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\System.Web.WebPag
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\System.Web.WebPages.Deployment.xml
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\System.Web.WebPages.Razor.xml
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\System.Web.Optimization.xml
-C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.csprojResolveAssemblyReference.cache
-C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.csproj.CoreCompileInputs.cache
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.csproj.CopyComplete
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.dll
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.pdb

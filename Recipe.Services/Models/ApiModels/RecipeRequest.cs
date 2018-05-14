@@ -15,7 +15,7 @@ namespace Recipe.Services.Models.ApiModels
         public List<string> MealType { get; set; }
         public List<string> DishType { get; set; }
         public List<string> CookingStyle { get; set; }
-        public List<Cuisine> Cuisine { get; set; }
+        public List<string> Cuisine { get; set; }
         public string CreatedBy { get; set; }
     }
 }

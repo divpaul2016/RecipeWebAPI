@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Recipe.Services.Models
 {
@@ -14,9 +10,12 @@ namespace Recipe.Services.Models
         public int DishTypeId { get; set; }
 
         [ForeignKey("DishTypeId")]
-        public virtual DishType DishType { get; set; }
+        [Column(Order = 1)]
+        public  DishType DishType { get; set; }
+
         [ForeignKey("RecipeId")]
-        public virtual FoodRecipe FoodRecipe { get; set; }
+        [Column(Order = 0)]
+        public  FoodRecipe FoodRecipe { get; set; }
     }
 
 }

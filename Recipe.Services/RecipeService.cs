@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using Recipe.Services.Context;
+﻿using Recipe.Services.Context;
 using Recipe.Services.Mapping;
 using Recipe.Services.Models;
 using Recipe.Services.Models.ApiModels;
@@ -20,7 +16,38 @@ namespace Recipe.Services
 
         public int CreateRecipe(RecipeRequest recipeRequest)
         {
-            return AddRecipe(recipeRequest);
+            var foodRecipe = new MapFoodRecipe();
+            var foodrecipeMap = foodRecipe.GetMappingToFoodRecipe(recipeRequest);
+            _recipeContext.FoodRecipes.Add(foodrecipeMap);
+
+            var map = new MapIngredients(_recipeContext);
+            var recipeIngredients = map.MapToRecipeIngredient(recipeRequest);
+            if (recipeIngredients != null)
+            {
+                foodrecipeMap.RecipeIngredients.AddRange(recipeIngredients);
+            }
+            var mapdirection = new MapDirections();
+            var directions = mapdirection.MapToRecipeDirections(recipeRequest);
+            _recipeContext.RecipeDirection.AddRange(directions);
+
+            var mapCuisine = new MapRecipeCuisine(_recipeContext);
+            var recipeCuisine = mapCuisine.MapToRecipeCuisines(recipeRequest);
+            _recipeContext.RecipeCuisine.AddRange(recipeCuisine);
+
+            var mapMealtype = new MapMealType(_recipeContext);
+            var recipeMealType = mapMealtype.MapToRecipeCuisines(recipeRequest);
+            _recipeContext.RecipeMealType.AddRange(recipeMealType);
+
+            var mapDishType = new MapDishType(_recipeContext);
+            var recipeDishType = mapDishType.MapToRecipeDishType(recipeRequest);
+            _recipeContext.RecipeDishType.AddRange(recipeDishType);
+
+            var mapCookingStyle = new MapCookingStyle(_recipeContext);
+            var recipeCookingStyle = mapCookingStyle.MapToRecipeCookingStyles(recipeRequest);
+            _recipeContext.RecipeCookingStyle.AddRange(recipeCookingStyle);
+
+            _recipeContext.SaveChanges();
+            return foodrecipeMap.RecipeId;
         }
 
         public FoodRecipe GetFoodRecipe(int recipeId)
@@ -65,20 +92,5 @@ Where FoodRecipes.RecipeId = 5*/
             //).FirstOrDefault();
         }
 
-        public int AddRecipe(RecipeRequest recipeRequest)
-        {
-            var foodRecipe = new MapFoodRecipe();
-            var foodrecipeMap = foodRecipe.GetMappingToFoodRecipe(recipeRequest);
-            _recipeContext.FoodRecipes.Add(foodrecipeMap);
-
-            var map = new MapIngredients();
-            var recipeIngredients = map.MapToRecipeIngredient(recipeRequest);
-            if (recipeIngredients != null)
-            {
-                foodrecipeMap.RecipeIngredients.AddRange(recipeIngredients);
-            }
-            _recipeContext.SaveChanges();
-            return foodrecipeMap.RecipeId;
-        }
     }
 }

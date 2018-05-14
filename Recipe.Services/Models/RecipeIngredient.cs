@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Permissions;
 
 namespace Recipe.Services.Models
 {
@@ -15,12 +14,10 @@ namespace Recipe.Services.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RecipeIngredientId { get; set; }
-
         public int RecipeId { get; set; }
         public int IngredientId { get; set; }
         public string Unit { get; set; }
         public string Quantity { get; set; }
-
         public bool MainIngredient { get; set; }
 
         [ForeignKey("RecipeId")]

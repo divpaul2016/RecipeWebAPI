@@ -10,19 +10,17 @@ namespace Recipe.Services.Models
     {
         public FoodRecipe()
         {
-            //RecipeCookingStyles = new HashSet<RecipeCookingStyle>();
-            //RecipeCuisines = new HashSet<RecipeCuisine>();
-            //RecipeDirections = new HashSet<RecipeDirection>();
-            //RecipeDishTypes = new HashSet<RecipeDishType>();
+            RecipeCookingStyles = new List<RecipeCookingStyle>();
+            RecipeCuisines = new List<RecipeCuisine>();
+            RecipeDishTypes = new List<RecipeDishType>();
             RecipeIngredients = new List<RecipeIngredient>();
-            //RecipeMealTypes = new HashSet<RecipeMealType>();
+            RecipeMealTypes = new List<RecipeMealType>();
         }
 
         [Key]
         [ForeignKey("")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RecipeId { get; set; }
-
         public string FoodName { get; set; }
         public int PrepTime { get; set; }
         public int ReadyIn { get; set; }
@@ -30,11 +28,10 @@ namespace Recipe.Services.Models
         public DateTime? CreatedOn { get; set; }
         public string CreatedBy { get; set; }
 
-        //public virtual ICollection<RecipeCookingStyle> RecipeCookingStyles { get; set; }
-        //public virtual ICollection<RecipeCuisine> RecipeCuisines { get; set; }
-        //public virtual ICollection<RecipeDirection> RecipeDirections { get; set; }
-        //public virtual ICollection<RecipeDishType> RecipeDishTypes { get; set; }
+        public List<RecipeCookingStyle> RecipeCookingStyles { get; set; }
+        public List<RecipeMealType> RecipeMealTypes { get; set; }
+        public List<RecipeCuisine> RecipeCuisines { get; set; }
+        public List<RecipeDishType> RecipeDishTypes { get; set; }
         public List<RecipeIngredient> RecipeIngredients { get; set; }
-        //public virtual ICollection<RecipeMealType> RecipeMealTypes { get; set; }
     }
 }

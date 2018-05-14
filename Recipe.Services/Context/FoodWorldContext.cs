@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Recipe.Services.Context
 {
-    public class FoodWorldContext :DbContext
+    public class FoodWorldContext : DbContext
     {
         public FoodWorldContext() : base("name=FoodWorld")
         {
@@ -31,80 +31,73 @@ namespace Recipe.Services.Context
 
             modelBuilder.Entity<FoodRecipe>()
                 .HasKey(c => new { c.RecipeId })
-                .ToTable("FoodRecipe",schemaName:"dbo");
+                .ToTable("FoodRecipe", schemaName: "dbo");
 
-            //modelBuilder.Entity<Cuisine>()
-            //    .HasKey(c => new { c.CuisineId });
+            modelBuilder.Entity<Cuisine>()
+                .HasKey(c => new { c.CuisineId })
+                .ToTable("Cuisine", schemaName: "dbo");
 
-            //modelBuilder.Entity<MealType>()
-            //    .HasKey(c => new { c.MealTypeId });
+            modelBuilder.Entity<MealType>()
+                .HasKey(c => new { c.MealTypeId })
+                .ToTable("MealType", schemaName: "dbo");
 
-            //modelBuilder.Entity<DishType>()
-            //    .HasKey(c => new { c.DishTypeId });
+            modelBuilder.Entity<DishType>()
+                .HasKey(c => new { c.DishTypeId })
+                .ToTable("DishType", schemaName: "dbo");
 
-            //modelBuilder.Entity<CookingStyle>()
-            //    .HasKey(c => new { c.CookingStyleId });
+            modelBuilder.Entity<CookingStyle>()
+                .HasKey(c => new { c.CookingStyleId })
+                .ToTable("CookingStyle", schemaName: "dbo");
 
             modelBuilder.Entity<Ingredient>()
-                .HasKey(c => new {c.IngredientId});
-                
-            //modelBuilder.Entity<RecipeCuisine>()
-            //    .HasKey(c => new { c.RecipeCuisineId });
+                .HasKey(c => new { c.IngredientId });
 
 
-            //modelBuilder.Entity<RecipeDirection>()
-            //    .HasKey(c => new { c.RecipeDirectionId });
+            modelBuilder.Entity<RecipeCuisine>()
+                .HasKey(c => new {c.RecipeCuisineId})
+                .ToTable("RecipeCuisine", schemaName: "dbo");
 
-            //modelBuilder.Entity<RecipeCookingStyle>()
-            //    .HasKey(c => new { c.RecipeCookingStyleId });
 
-            //modelBuilder.Entity<RecipeDishType>()
-            //    .HasKey(c => new { c.RecipeDishTypeId });
+            modelBuilder.Entity<RecipeDirection>()
+                .HasKey(c => new { c.RecipeDirectionId })
+                .ToTable("RecipeDirection", schemaName: "dbo");
+
+            modelBuilder.Entity<RecipeCookingStyle>()
+                .HasKey(c => new { c.RecipeCookingStyleId });
+
+            modelBuilder.Entity<RecipeDishType>()
+                .HasKey(c => new { c.RecipeDishTypeId });
 
             modelBuilder.Entity<RecipeIngredient>()
                 .HasKey(c => new { c.RecipeIngredientId })
                 .ToTable("RecipeIngredient", schemaName: "dbo");
 
-            //modelBuilder.Entity<RecipeMealType>()
-            //    .HasKey(c => new { c.RecipeMealTypeId });
+            modelBuilder.Entity<RecipeMealType>()
+                .HasKey(c => new { c.RecipeMealTypeId })
+                .ToTable("RecipeMealType", schemaName: "dbo");
 
 
 
-            //modelBuilder.Entity<RecipeCookingStyle>()
-            //    .HasRequired(t => t.FoodRecipe)
-            //    .WithMany(t => t.RecipeCookingStyles)
-            //    .HasForeignKey(t => t.RecipeId);
+            modelBuilder.Entity<RecipeCookingStyle>()
+                .HasRequired(t => t.FoodRecipe)
+                .WithMany(t => t.RecipeCookingStyles)
+                .HasForeignKey(t => t.RecipeId);
 
-            //modelBuilder.Entity<RecipeCookingStyle>()
-            //    .HasRequired(t => t.CookingStyle)
-            //    .WithMany(t => t.RecipeCookingStyles)
-            //    .HasForeignKey(t => t.CookingStyleId);
-
-            //modelBuilder.Entity<RecipeCuisine>()
-            //    .HasRequired(t => t.FoodRecipe)
-            //    .WithMany(t => t.RecipeCuisines)
-            //    .HasForeignKey(t => t.RecipeId);
-
-            //modelBuilder.Entity<RecipeCuisine>()
-            //    .HasRequired(t => t.Cuisine)
-            //    .WithMany(t => t.RecipeCuisines)
-            //    .HasForeignKey(t => t.CuisineId);
+            modelBuilder.Entity<RecipeCookingStyle>()
+                .HasRequired(t => t.CookingStyle);
+                
+            modelBuilder.Entity<RecipeDirection>()
+                .HasRequired(t => t.FoodRecipe);
 
 
-            //modelBuilder.Entity<RecipeDirection>()
-            //    .HasRequired(t => t.FoodRecipe)
-            //    .WithMany(t => t.RecipeDirections)
-            //    .HasForeignKey(t => t.RecipeId);
+            modelBuilder.Entity<RecipeDishType>()
+                .HasRequired(t => t.FoodRecipe)
+                .WithMany(t => t.RecipeDishTypes)
+                .HasForeignKey(t => t.RecipeId);
 
-            //modelBuilder.Entity<RecipeDishType>()
-            //    .HasRequired(t => t.FoodRecipe)
-            //    .WithMany(t => t.RecipeDishTypes)
-            //    .HasForeignKey(t => t.RecipeId);
-
-            //modelBuilder.Entity<RecipeDishType>()
-            //    .HasRequired(t => t.DishType)
-            //    .WithMany(t => t.RecipeDishTypes)
-            //    .HasForeignKey(t => t.DishTypeId);
+            modelBuilder.Entity<RecipeDishType>()
+                .HasRequired(t => t.DishType);
+                
 
             modelBuilder.Entity<RecipeIngredient>()
                 .HasRequired(t => t.FoodRecipe)
@@ -114,11 +107,17 @@ namespace Recipe.Services.Context
             modelBuilder.Entity<RecipeIngredient>()
                 .HasRequired(i => i.Ingredient);
 
+            modelBuilder.Entity<RecipeCuisine>()
+                .HasRequired(t => t.FoodRecipe)
+                .WithMany(t => t.RecipeCuisines)
+                .HasForeignKey(t => t.RecipeId);
 
-            //modelBuilder.Entity<RecipeMealType>()
-            //    .HasRequired(t => t.FoodRecipe)
-            //    .WithMany(t => t.RecipeMealTypes)
-            //    .HasForeignKey(t => t.RecipeId);
+            modelBuilder.Entity<RecipeCuisine>()
+                .HasRequired(t => t.Cuisine);
+            
+
+            modelBuilder.Entity<RecipeMealType>()
+                .HasRequired(t => t.FoodRecipe);
 
 
             //modelBuilder.Entity<RecipeMealType>()

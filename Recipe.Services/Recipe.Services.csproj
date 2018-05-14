@@ -51,9 +51,13 @@
   <ItemGroup>
     <Compile Include="Context\FoodWorldContext.cs" />
     <Compile Include="Context\IFoodWorldContext.cs" />
-    <Compile Include="Enums\Cuisine.cs" />
+    <Compile Include="Mapping\MapCookingStyle.cs" />
+    <Compile Include="Mapping\MapCuisine.cs" />
+    <Compile Include="Mapping\MapDishType.cs" />
     <Compile Include="Mapping\MapFoodRecipe.cs" />
     <Compile Include="Mapping\MapIngredients.cs" />
+    <Compile Include="Mapping\MapDirections.cs" />
+    <Compile Include="Mapping\MapMealType.cs" />
     <Compile Include="Models\CookingStyle.cs" />
     <Compile Include="Models\Cuisine.cs" />
     <Compile Include="Models\ApiModels\Direction.cs" />
@@ -81,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Context\FoodWorldRecipeDB.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

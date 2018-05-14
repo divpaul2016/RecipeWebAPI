@@ -1,0 +1,220 @@
+﻿USE [FoodWorld]
+GO
+/****** Object:  Table [dbo].[CookingStyle]    Script Date: 5/14/2018 2:42:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CookingStyle](
+	[CookingStyleName ] [varchar](50) NOT NULL,
+	[CookingStyleId] [int] IDENTITY(1,1) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CookingStyleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cuisine]    Script Date: 5/14/2018 2:42:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cuisine](
+	[CuisineName ] [varchar](50) NOT NULL,
+	[CuisineId] [int] IDENTITY(1,1) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CuisineId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DishType]    Script Date: 5/14/2018 2:42:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DishType](
+	[DishTypeName ] [varchar](50) NOT NULL,
+	[DishTypeID] [int] IDENTITY(1,1) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[DishTypeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FoodRecipe]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FoodRecipe](
+	[RecipeId] [int] IDENTITY(1,1) NOT NULL,
+	[FoodName] [varchar](50) NULL,
+	[PrepTime] [varchar](4) NULL,
+	[ReadyIn] [varchar](4) NULL,
+	[CookingTime] [varchar](4) NULL,
+	[CreatedOn] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ingredient]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ingredient](
+	[IngredientName] [varchar](50) NOT NULL,
+	[IngredientID] [int] IDENTITY(1,1) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IngredientID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MealType]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MealType](
+	[MealTypeName ] [varchar](50) NOT NULL,
+	[MealTypeId] [int] IDENTITY(1,1) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MealTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecipeCookingStyle]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecipeCookingStyle](
+	[RecipeCookingStyleId] [int] IDENTITY(1,1) NOT NULL,
+	[RecipeId] [int] NOT NULL,
+	[CookingStyleId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeCookingStyleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecipeCuisine]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecipeCuisine](
+	[RecipeCuisineId] [int] IDENTITY(1,1) NOT NULL,
+	[RecipeId] [int] NOT NULL,
+	[CuisineId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeCuisineId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecipeDirection]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecipeDirection](
+	[RecipeDirectionId] [int] IDENTITY(1,1) NOT NULL,
+	[RecipeId] [int] NOT NULL,
+	[StepNo] [int] NOT NULL,
+	[Instructions] [varchar](500) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeDirectionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecipeDishType]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecipeDishType](
+	[RecipeDishTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[RecipeId] [int] NOT NULL,
+	[DishTypeId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeDishTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecipeIngredient]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecipeIngredient](
+	[RecipeIngredientId] [int] IDENTITY(1,1) NOT NULL,
+	[RecipeId] [int] NOT NULL,
+	[IngredientId] [int] NOT NULL,
+	[Unit] [varchar](50) NOT NULL,
+	[Quantity] [varchar](50) NOT NULL,
+	[MainIngredient] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeIngredientId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecipeMealType]    Script Date: 5/14/2018 2:42:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecipeMealType](
+	[RecipeMealTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[RecipeId] [int] NOT NULL,
+	[MealTypeId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecipeMealTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FoodRecipe] ADD  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+ALTER TABLE [dbo].[RecipeCookingStyle]  WITH CHECK ADD FOREIGN KEY([CookingStyleId])
+REFERENCES [dbo].[CookingStyle] ([CookingStyleId])
+GO
+ALTER TABLE [dbo].[RecipeCookingStyle]  WITH CHECK ADD FOREIGN KEY([RecipeId])
+REFERENCES [dbo].[FoodRecipe] ([RecipeId])
+GO
+ALTER TABLE [dbo].[RecipeCuisine]  WITH CHECK ADD FOREIGN KEY([CuisineId])
+REFERENCES [dbo].[Cuisine] ([CuisineId])
+GO
+ALTER TABLE [dbo].[RecipeCuisine]  WITH CHECK ADD FOREIGN KEY([RecipeId])
+REFERENCES [dbo].[FoodRecipe] ([RecipeId])
+GO
+ALTER TABLE [dbo].[RecipeDirection]  WITH CHECK ADD FOREIGN KEY([RecipeId])
+REFERENCES [dbo].[FoodRecipe] ([RecipeId])
+GO
+ALTER TABLE [dbo].[RecipeDishType]  WITH CHECK ADD FOREIGN KEY([DishTypeId])
+REFERENCES [dbo].[DishType] ([DishTypeID])
+GO
+ALTER TABLE [dbo].[RecipeDishType]  WITH CHECK ADD FOREIGN KEY([RecipeId])
+REFERENCES [dbo].[FoodRecipe] ([RecipeId])
+GO
+ALTER TABLE [dbo].[RecipeIngredient]  WITH CHECK ADD FOREIGN KEY([IngredientId])
+REFERENCES [dbo].[Ingredient] ([IngredientID])
+GO
+ALTER TABLE [dbo].[RecipeIngredient]  WITH CHECK ADD FOREIGN KEY([RecipeId])
+REFERENCES [dbo].[FoodRecipe] ([RecipeId])
+GO
+ALTER TABLE [dbo].[RecipeMealType]  WITH CHECK ADD FOREIGN KEY([MealTypeId])
+REFERENCES [dbo].[MealType] ([MealTypeId])
+GO
+ALTER TABLE [dbo].[RecipeMealType]  WITH CHECK ADD FOREIGN KEY([RecipeId])
+REFERENCES [dbo].[FoodRecipe] ([RecipeId])
+GO

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Recipe.Services.Models;
+﻿using Recipe.Services.Models;
 using Recipe.Services.Models.ApiModels;
+using System;
 
 namespace Recipe.Services.Mapping
 {

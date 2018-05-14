@@ -2,7 +2,7 @@
 {
     public class Direction
     {
-        public int Step { get; set; }
+        public int StepNo { get; set; }
         public string Instruction { get; set; }
     }
 }

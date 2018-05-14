@@ -1,4 +1,4 @@
-﻿namespace Recipe.Services.Models
+﻿namespace Recipe.Services.Models.ApiModels
 {
     public class Response
     {
