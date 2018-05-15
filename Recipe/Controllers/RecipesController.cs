@@ -1,10 +1,8 @@
-﻿using System;
-using System.Web.Http;
-using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json;
+﻿using Microsoft.Ajax.Utilities;
 using Recipe.Services;
-using Recipe.Services.Models;
 using Recipe.Services.Models.ApiModels;
+using System;
+using System.Web.Http;
 
 namespace Recipe.Controllers
 {
@@ -17,21 +15,25 @@ namespace Recipe.Controllers
             _recipeService = service;
         }
 
-        //GET: api/Recipes/5
+        //GET: api/recipes/?id=6
         public IHttpActionResult GetRecipeByRecipeId(int id)
         {
             var recipe = _recipeService.GetFoodRecipe(id);
-            var outPut = JsonConvert.SerializeObject(recipe);
-            return Ok(outPut);
+            return Ok(recipe);
         }
 
-        ///PUT: api/Recipes/5
-        [HttpPut]
-        public IHttpActionResult GetAllRecipe([FromBody]RecipeIdRequest recipeIdRequest)
+        ///GET: api/recipes/?recipeName=
+        public IHttpActionResult GetRecipeByRecipeName(string recipeName)
         {
-            var recipe = _recipeService.GetFoodRecipe(recipeIdRequest.RecipeId);
-            var outPut = JsonConvert.SerializeObject(recipe);
-            return Ok(outPut);
+            var recipe = _recipeService.GetFoodRecipe(recipeName);
+            return Ok(recipe);
+        }
+
+        ///GET: api/recipes/?ingredient=Brocoli
+        public IHttpActionResult GetRecipesByIngredientName(string ingredient)
+        {
+            var recipe = _recipeService.GetFoodRecipeByIngredients(ingredient);
+            return Ok(recipe);
         }
 
         // POST: api/Recipes

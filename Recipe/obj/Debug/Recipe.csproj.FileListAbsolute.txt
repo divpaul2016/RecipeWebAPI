@@ -266,7 +266,6 @@ C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\roslyn\VBCSCompil
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Antlr3.Runtime.dll
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\EntityFramework.dll
-C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\EntityFramework.SqlServer.dll
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -300,7 +299,6 @@ C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Recipe.Services.p
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Recipe.Services.dll.config
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Antlr3.Runtime.pdb
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\EntityFramework.xml
-C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\EntityFramework.SqlServer.xml
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Microsoft.AI.Web.xml
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\Microsoft.AI.WindowsServer.xml
@@ -325,3 +323,5 @@ C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\System.Web.Optimi
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.csproj.CopyComplete
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.dll
 C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\obj\Debug\Recipe.pdb
+C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\EntityFramework.SqlServer.dll
+C:\Users\divya.paul\source\Goal\Recipe\RecipeWebAPI\Recipe\bin\EntityFramework.SqlServer.xml

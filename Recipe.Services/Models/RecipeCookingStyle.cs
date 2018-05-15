@@ -15,9 +15,9 @@ namespace Recipe.Services.Models
         public int CookingStyleId { get; set; }
 
         [ForeignKey("CookingStyleId")]
-        public virtual CookingStyle CookingStyle { get; set; }
+        public CookingStyle CookingStyle { get; set; }
 
         [ForeignKey("RecipeId")]
-        public virtual FoodRecipe FoodRecipe { get; set; }
+        public  FoodRecipe FoodRecipe { get; set; }
     }
 }

@@ -11,10 +11,10 @@ namespace Recipe.Services.Models
        
         [Column(Order = 0)]
         [ForeignKey("RecipeId")]
-        public virtual FoodRecipe FoodRecipe { get; set; }
+        public  FoodRecipe FoodRecipe { get; set; }
 
         [Column(Order = 1)]
         [ForeignKey("MealTypeId")]
-        public virtual MealType MealType { get; set; }
+        public  MealType MealType { get; set; }
     }
 }

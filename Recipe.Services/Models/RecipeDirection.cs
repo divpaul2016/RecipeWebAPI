@@ -12,6 +12,6 @@ namespace Recipe.Services.Models
         public string Instructions { get; set; }
 
         [ForeignKey("RecipeId")]
-        public virtual FoodRecipe FoodRecipe { get; set; }
+        public FoodRecipe FoodRecipe { get; set; }
     }
 }

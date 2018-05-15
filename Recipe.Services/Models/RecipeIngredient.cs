@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Recipe.Services.Models
 {
     [Table("FoodRecipe")]
-    public class RecipeIngredient
+    public class RecipeIngredient : IEnumerable
     {
         public RecipeIngredient()
         {
@@ -27,5 +28,10 @@ namespace Recipe.Services.Models
         [ForeignKey("IngredientId")]
         [Column(Order = 1)]
         public Ingredient Ingredient { get; set; }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

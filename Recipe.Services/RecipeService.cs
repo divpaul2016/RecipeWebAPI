@@ -1,7 +1,8 @@
 ﻿using Recipe.Services.Context;
 using Recipe.Services.Mapping;
-using Recipe.Services.Models;
 using Recipe.Services.Models.ApiModels;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Recipe.Services
 {
@@ -50,47 +51,44 @@ namespace Recipe.Services
             return foodrecipeMap.RecipeId;
         }
 
-        public FoodRecipe GetFoodRecipe(int recipeId)
+        public RecipeRequest GetFoodRecipe(int recipeId)
         {
-            return new FoodRecipe();
-            //_recipeContext.FoodRecipes.FirstOrDefault(m => m.RecipeId == recipeId);
-            /*SELECT * 
-FROM FoodRecipes 
-JOIN RecipeCookingStyle on FoodRecipes.RecipeId = RecipeCookingStyle .RecipeId
-JOIN CookingStyles ON RecipeCookingStyle.CookingStyleId = CookingStyles.CookingStyleId
-JOIN RecipeCuisine on FoodRecipes.RecipeId = RecipeCuisine.RecipeId
-JOIN Cuisines ON RecipeCuisine.CuisineId = Cuisines.CuisineId
-JOIN RecipeDirection ON FoodRecipes.RecipeId = RecipeDirection.RecipeId
-JOIN RecipeDishType ON FoodRecipes.RecipeId = RecipeDishType.RecipeId
-JOIN DishTypes ON RecipeDishType.DishTypeId = DishTypes.DishTypeID
-JOIN RecipeIngredient ON FoodRecipes.RecipeId = RecipeIngredient.RecipeId
-JOIN Ingredients ON FoodRecipes.RecipeId = Ingredients.IngredientID
-JOIN RecipeMealType ON FoodRecipes.RecipeId = RecipeMealType.RecipeId
-JOIN MealTypes ON RecipeMealType.MealTypeId = MealTypes.MealTypeId
-Where FoodRecipes.RecipeId = 5*/
-
-
-            //var dat = _recipeContext.FoodRecipes
-            //    .Where(m => m.RecipeId == recipeId)
-            //    .SelectMany(c => c.RecipeCookingStyles)
-            //    .SelectMany(c=>c.)
-            //    {
-            //        RecipeId = recipeId
-            //    });
-
-            //.SelectMany(rd =>rd.);
-
-            //    {
-            //        FoodRecipe = m,
-            //        RecipeCookingStyle = m.RecipeId,
-            //        RecipeDirection = m.RecipeId,
-            //        RecipeCuisine = m.RecipeId,
-            //        RecipeDishType = m.RecipeId,
-            //        RecipeIngredient = m.RecipeId,
-            //        RecipeMealType = m.RecipeId
-            //    }
-            //).FirstOrDefault();
+            var recipe = new MapRecipe(_recipeContext);
+            return recipe.MapToRecipe(recipeId);
         }
 
+        public RecipeRequest GetFoodRecipe(string recipeName)
+        {
+            var foodRecipe= _recipeContext.FoodRecipes.FirstOrDefault(x => x.FoodName == recipeName);
+            var recipe = new MapRecipe(_recipeContext);
+            if (foodRecipe != null) return recipe.MapToRecipe(foodRecipe.RecipeId);
+            return new RecipeRequest();
+        }
+
+        public List<RecipeRequest> GetFoodRecipeByIngredients(string ingredientName)
+        {
+            var ingredientId = GetIngredientId(ingredientName);
+            if(ingredientId <1)
+                return new List<RecipeRequest>();
+
+            var foodRecipes = _recipeContext.RecipeIngredient.Where(x => x.IngredientId == ingredientId).ToList();
+            if(foodRecipes.Equals(null))
+                return new List<RecipeRequest>();
+
+            List<RecipeRequest> recipeRequests = new List<RecipeRequest>();
+            foreach (var recipeItem in foodRecipes)
+            {
+                var recipe = new MapRecipe(_recipeContext);
+                recipeRequests.Add(recipe.MapToRecipe(recipeItem.RecipeId));
+            }
+            return recipeRequests;
+        }
+
+        private int GetIngredientId(string ingredientName)
+        {
+            var ingredient = _recipeContext.Ingredients.FirstOrDefault(x => x.IngredientName == ingredientName);
+            if (ingredient != null) return ingredient.IngredientId;
+            return 0;
+        }
     }
 }

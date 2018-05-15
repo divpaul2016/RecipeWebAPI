@@ -12,22 +12,22 @@ namespace Recipe.Services.Context
             Database.SetInitializer<FoodWorldContext>(null);
         }
 
-        public virtual DbSet<CookingStyle> CookingStyles { get; set; }
-        public virtual DbSet<Cuisine> Cuisines { get; set; }
-        public virtual DbSet<DishType> DishTypes { get; set; }
-        public virtual DbSet<FoodRecipe> FoodRecipes { get; set; }
-        public virtual DbSet<Ingredient> Ingredients { get; set; }
-        public virtual DbSet<MealType> MealTypes { get; set; }
-        public virtual DbSet<RecipeCookingStyle> RecipeCookingStyle { get; set; }
-        public virtual DbSet<RecipeCuisine> RecipeCuisine { get; set; }
-        public virtual DbSet<RecipeDirection> RecipeDirection { get; set; }
-        public virtual DbSet<RecipeDishType> RecipeDishType { get; set; }
-        public virtual DbSet<RecipeIngredient> RecipeIngredient { get; set; }
-        public virtual DbSet<RecipeMealType> RecipeMealType { get; set; }
+        public DbSet<CookingStyle> CookingStyles { get; set; }
+        public DbSet<Cuisine> Cuisines { get; set; }
+        public DbSet<DishType> DishTypes { get; set; }
+        public DbSet<FoodRecipe> FoodRecipes { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<MealType> MealTypes { get; set; }
+        public DbSet<RecipeCookingStyle> RecipeCookingStyle { get; set; }
+        public DbSet<RecipeCuisine> RecipeCuisine { get; set; }
+        public DbSet<RecipeDirection> RecipeDirection { get; set; }
+        public DbSet<RecipeDishType> RecipeDishType { get; set; }
+        public DbSet<RecipeIngredient> RecipeIngredient { get; set; }
+        public DbSet<RecipeMealType> RecipeMealType { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<FoodRecipe>()
                 .HasKey(c => new { c.RecipeId })
@@ -54,7 +54,7 @@ namespace Recipe.Services.Context
 
 
             modelBuilder.Entity<RecipeCuisine>()
-                .HasKey(c => new {c.RecipeCuisineId})
+                .HasKey(c => new { c.RecipeCuisineId })
                 .ToTable("RecipeCuisine", schemaName: "dbo");
 
 
@@ -85,7 +85,7 @@ namespace Recipe.Services.Context
 
             modelBuilder.Entity<RecipeCookingStyle>()
                 .HasRequired(t => t.CookingStyle);
-                
+
             modelBuilder.Entity<RecipeDirection>()
                 .HasRequired(t => t.FoodRecipe);
 
@@ -97,7 +97,7 @@ namespace Recipe.Services.Context
 
             modelBuilder.Entity<RecipeDishType>()
                 .HasRequired(t => t.DishType);
-                
+
 
             modelBuilder.Entity<RecipeIngredient>()
                 .HasRequired(t => t.FoodRecipe)
@@ -114,7 +114,7 @@ namespace Recipe.Services.Context
 
             modelBuilder.Entity<RecipeCuisine>()
                 .HasRequired(t => t.Cuisine);
-            
+
 
             modelBuilder.Entity<RecipeMealType>()
                 .HasRequired(t => t.FoodRecipe);
@@ -125,8 +125,9 @@ namespace Recipe.Services.Context
             //    .WithMany(t => t.RecipeMealTypes)
             //    .HasForeignKey(t => t.MealTypeId);
 
-            base.OnModelCreating(modelBuilder);
 
         }
+
+
     }
 }
